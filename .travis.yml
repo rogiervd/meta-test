@@ -2,7 +2,7 @@ language: c++
 
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq boost-build
+  - sudo apt-get install -qq libboost1.48-all-dev clang
 
 install: true
 script: bjam test gcc clang debug release
