@@ -1,11 +1,17 @@
-language: c++
+language: cpp
+
+compiler:
+  - gcc
+  - clang
 
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq libboost-all-dev clang
+  - sudo apt-get install -qq libboost-all-dev
   - echo -e 'import boost ;\nboost.use-project ;\n using gcc ;\n using clang ;' > ~/user-config.jam
   - cat ~/user-config.jam
   - wget https://github.com/boostorg/build/raw/develop/src/contrib/boost.jam -O ~/boost.jam
 
 install: true
-script: bjam test gcc clang debug release
+
+# It just so happens that ${CC} corresponds to the BJam toolkit name.
+script: bjam test ${CC} debug release
