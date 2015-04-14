@@ -3,7 +3,7 @@ language: c++
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq libboost-all-dev clang
-  - echo -e 'import boost ;\nboost.use-project ;\n using clang ;' > ~/user-config.jam
+  - echo -e 'import boost ;\nboost.use-project ;\n using gcc ;\n using clang ;' > ~/user-config.jam
   - cat ~/user-config.jam
   - wget https://github.com/boostorg/build/raw/develop/src/contrib/boost.jam -O ~/boost.jam
 
